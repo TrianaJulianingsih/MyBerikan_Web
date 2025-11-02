@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Maintenance Alat - Berikan Bahari Indonesia</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <header class="appbar">
+    <div class="logo">
+      <a href="../dashboard/dashboard.html">
+        <img src="../assets/images/logo 2.png" alt="logo">
+      </a>
+     
+    </div>
+
+    <div class="header-right">
+      <div class="profile">
+        <div class="avatar">
+          <img src="../assets/images/mat.jpg">
+        </div>
+        <span>User Name</span>
+      </div>
+    </div>
+  </header>
+
+  
+  <main class="container">
+    <div class="header-bar">
+      <h2>Data Maintenance Alat</h2>
+      <div class="toolbar">
+        <input type="text" id="search" placeholder="Cari Alat..." />
+        <button id="addBtn">Tambah Data</button>
+      </div>
+    </div>
+
+    
+    <div class="card-list" id="alatList"></div>
+  </main>
+
+  
+  <div class="popup" id="editPopup">
+    <div class="popup-content">
+      <h3>Edit Data Alat</h3>
+      <input type="text" id="editKode" placeholder="Kode Alat" />
+      <input type="text" id="editNama" placeholder="Nama Alat" />
+      <textarea id="editKeluhan" placeholder="Keluhan Alat"></textarea>
+      <select id="editStatus">
+        <option value="Tersolved">Tersolved</option>
+        <option value="Belum">Belum</option>
+      </select>
+      <div class="popup-buttons">
+        <button id="saveEdit">Simpan</button>
+        <button id="closeEdit">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="popup" id="addPopup">
+    <div class="popup-content">
+      <h3>Tambah Data Alat</h3>
+      <input type="text" id="newKode" placeholder="Kode Alat" />
+      <input type="text" id="newNama" placeholder="Nama Alat" />
+      <textarea id="newKeluhan" placeholder="Keluhan Alat"></textarea>
+      <select id="newStatus">
+        <option value="Tersolved">Tersolved</option>
+        <option value="Belum">Belum</option>
+      </select>
+      <div class="popup-buttons">
+        <button id="saveAdd">Simpan</button>
+        <button id="closeAdd">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="deletePopup">
+    <div class="popup-content small">
+      <h3>Hapus Data?</h3>
+      <p>Apakah kamu yakin ingin menghapus data alat ini?</p>
+      <div class="popup-buttons">
+        <button id="confirmDelete">Ya, Hapus</button>
+        <button id="cancelDelete">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 PT Berikan Teknologi Indonesia - Maintenance
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
