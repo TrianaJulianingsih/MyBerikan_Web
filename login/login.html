@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form Register</title>
+  <title>Form Login</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,9 +11,9 @@
   <div class="container">
     <img src="../assets/images/logo.png" alt="Logo">
     <h2>Selamat Datang</h2>
-    <p>Silahkan login untuk melanjutkan aktivitas Anda</p>
+    <p>Silakan login untuk melanjutkan aktivitas Anda</p>
 
-    <form>
+    <form action="../Dashboard/dashboard.html" method="get">
       <div class="input-group">
         <label for="nama">Nama Lengkap</label>
         <input type="text" id="nama" placeholder="Nama Pengguna" required>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="login-text">
-        ----------Belum memiliki akun? <a href="../register/register.html">Register di sini</a>-----------
+        Belum memiliki akun? <a href="../register/register.html">Daftar di sini</a>
       </div>
 
       <button type="submit" class="btn">Login</button>

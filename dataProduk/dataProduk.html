@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Produk - Berikan Bahari Indonesia</title>
+  <link rel="stylesheet" href="dataP.css">
+</head>
+
+<body>
+  <header class="appbar">
+    <div class="logo">
+      <a href="../dashboard/dashboard.html">
+        <img src="../assets/images/logo 2.png" alt="logo">
+      </a>
+    </div>
+
+    <div class="header-right">
+      <div class="profile">
+        <div class="avatar">
+          <img src="../assets/images/mat.jpg" alt="User Avatar">
+        </div>
+        <span>User Name</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="header-bar">
+      <h2>Data Produk</h2>
+      <div class="toolbar">
+        <input type="text" id="search" placeholder="Cari Produk...">
+        <button id="addBtn">Tambah Produk</button>
+      </div>
+    </div>
+
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>Kode Produk</th>
+          <th>Nama Produk</th>
+          <th>Jumlah</th>
+          <th>Status</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="productTable"></tbody>
+    </table>
+
+    <div class="pagination">
+      <button id="prevPage">&laquo;</button>
+      <span id="pageNumber">1</span>
+      <button id="nextPage">&raquo;</button>
+    </div>
+  </main>
+
+  <div class="popup" id="actionPopup">
+    <div class="popup-content small">
+      <h4>Pilih Aksi</h4>
+      <button id="actionEdit">Edit</button>
+      <button id="actionDelete">Delete</button>
+      <button id="closeAction">Batal</button>
+    </div>
+  </div>
+
+  <div class="popup" id="editPopup">
+    <div class="popup-content">
+      <h3>Edit Produk</h3>
+      <input type="text" id="editKode" placeholder="Kode Produk">
+      <input type="text" id="editNama" placeholder="Nama Produk">
+      <input type="number" id="editJumlah" placeholder="Jumlah">
+      <select id="editStatus">
+        <option value="Aktif">Aktif</option>
+        <option value="Non Aktif">Non Aktif</option>
+      </select>
+      <div class="popup-buttons">
+        <button id="saveEdit">Simpan</button>
+        <button id="closeEdit">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="addPopup">
+    <div class="popup-content">
+      <h3>Tambah Produk</h3>
+      <input type="text" id="newKode" placeholder="Kode Produk">
+      <input type="text" id="newNama" placeholder="Nama Produk">
+      <input type="number" id="newJumlah" placeholder="Jumlah">
+      <select id="newStatus">
+        <option value="Aktif">Aktif</option>
+        <option value="Non Aktif">Non Aktif</option>
+      </select>
+      <div class="popup-buttons">
+        <button id="saveAdd">Simpan</button>
+        <button id="closeAdd">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="deletePopup">
+    <div class="popup-content small">
+      <h3>Hapus Produk?</h3>
+      <p>Apakah kamu yakin ingin menghapus produk ini?</p>
+      <div class="popup-buttons">
+        <button id="confirmDelete">Ya, Hapus</button>
+        <button id="cancelDelete">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 PT Berikan Teknologi Indonesia ~ Data Produk
+  </footer>
+
+  <script src="dataP.js"></script>
+</body>
+</html>
