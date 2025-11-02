@@ -13,29 +13,30 @@
     <h2>Selamat Datang</h2>
     <p>Lengkapi data di bawah untuk membuat akun baru</p>
 
-    <form>
+    <!-- Tambahkan action agar setelah submit langsung pindah -->
+    <form action="../Dashboard/dashboard.html" method="get">
       <div class="input-group">
         <label for="id">ID Karyawan</label>
-        <input type="text" id="id" placeholder="ID Pengguna" required>
+        <input type="text" id="id" name="id" placeholder="ID Pengguna" required>
       </div>
 
       <div class="input-group">
         <label for="nama">Nama Lengkap</label>
-        <input type="text" id="nama" placeholder="Nama Pengguna" required>
+        <input type="text" id="nama" name="nama" placeholder="Nama Pengguna" required>
       </div>
 
       <div class="input-group">
         <label for="password">Kata Sandi</label>
-        <input type="password" id="password" placeholder="Masukkan Kata Sandi" required>
+        <input type="password" id="password" name="password" placeholder="Masukkan Kata Sandi" required>
       </div>
 
       <div class="input-group">
         <label for="confirm">Konfirmasi Kata Sandi</label>
-        <input type="password" id="confirm" placeholder="Masukkan Ulang Kata Sandi" required>
+        <input type="password" id="confirm" name="confirm" placeholder="Masukkan Ulang Kata Sandi" required>
       </div>
 
       <div class="login-text">
-        ------------Sudah memiliki akun? <a href="../Login/login.html">Login di sini</a>------------
+        Sudah memiliki akun? <a href="../Login/login.html">Login di sini</a>
       </div>
 
       <button type="submit" class="btn">Register</button>
