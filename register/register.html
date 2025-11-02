@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <img src="../assets/images/logo.png" alt="Logo">
+    <h2>Selamat Datang</h2>
+    <p>Lengkapi data di bawah untuk membuat akun baru</p>
+
+    <form>
+      <div class="input-group">
+        <label for="id">ID Karyawan</label>
+        <input type="text" id="id" placeholder="ID Pengguna" required>
+      </div>
+
+      <div class="input-group">
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" placeholder="Nama Pengguna" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Kata Sandi</label>
+        <input type="password" id="password" placeholder="Masukkan Kata Sandi" required>
+      </div>
+
+      <div class="input-group">
+        <label for="confirm">Konfirmasi Kata Sandi</label>
+        <input type="password" id="confirm" placeholder="Masukkan Ulang Kata Sandi" required>
+      </div>
+
+      <div class="login-text">
+        ------------Sudah memiliki akun? <a href="../Login/login.html">Login di sini</a>------------
+      </div>
+
+      <button type="submit" class="btn">Register</button>
+    </form>
+  </div>
+
+</body>
+</html>
