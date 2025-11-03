@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jadwal Meeting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../Dashboard/dashboard.html">
+                <img src="../assets/images/logo 2.png" alt="Logo">
+            </a>
+        </div>
+        <div class="profile">
+            <img src="../assets/images/mat.jpg" alt="Username">
+            <span>User Name</span>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Jadwal Meeting</h1>
+    </header>
+
+    <div class="container">
+        <div class="actions">
+            <button class="btn" id="btnTambah">+ Tambah Meeting</button>
+        </div>
+        <div id="meetingContainer"></div>
+    </div>
+
+    <div class="modal" id="meetingModal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Tambah Meeting</h3>
+            <input type="text" id="inputJudul" placeholder="Judul Meeting" />
+            <input type="date" id="inputTanggal" />
+            <input type="time" id="inputWaktu" />
+            <textarea id="inputDeskripsi" placeholder="Deskripsi"></textarea>
+
+            <div class="modal-buttons">
+                <button class="btn" id="btnSimpan">Simpan</button>
+                <button class="btn btn-delete" id="btnBatal">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>© 2025 PT Berikan Teknologi Indonesia ~ Jadwal Meeting</footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
