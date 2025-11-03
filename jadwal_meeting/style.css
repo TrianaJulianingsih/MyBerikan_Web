@@ -1,0 +1,145 @@
+body { 
+    display: flex; 
+    flex-direction: column; 
+    margin: 0; 
+    font-family: 'Poppins', sans-serif; 
+    min-height: 100vh; 
+} 
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px; 
+    background: white; 
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    position: sticky; 
+    top: 0; z-index: 10; 
+} 
+.navbar .logo { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+} 
+.logo img { 
+    width: 150px; 
+    height: 50px; 
+} 
+.profile { 
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+    background-color: #007bff; 
+    border-radius: 25px; 
+    color: #fff; 
+    padding: 6px 12px; 
+} 
+.profile img { 
+    width: 25px; 
+    height: 25px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid #e0e0e0; 
+} 
+.profile span { 
+    font-weight: 500; 
+    color: #fff; 
+}
+
+header { 
+    background: none; 
+    text-align: left; 
+    padding: 30px 20px; 
+} 
+header h1 { 
+    font-size: 24px; 
+    font-weight: bold; 
+    margin: 0; 
+}
+.container {
+    padding: 20px;
+}
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.btn:hover {
+    background-color: #0056b3;
+}
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.card-info {
+    font-size: 14px;
+    color: #555;
+}
+.card-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+.btn-edit {
+    background-color: #ffc107;
+    color: black;
+}
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.modal-content h3 {
+    margin-top: 0;
+}
+.modal-content input, 
+.modal-content textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.modal-buttons {
+    text-align: right;
+}
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-weight: 500;
+    margin-top: 40px;
+}
