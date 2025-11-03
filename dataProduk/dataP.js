@@ -1,15 +1,15 @@
-const tableBody = document.getElementById("productTable");
-const searchInput = document.getElementById("search");
-const editPopup = document.getElementById("editPopup");
-const addPopup = document.getElementById("addPopup");
-const actionPopup = document.getElementById("actionPopup");
-const deletePopup = document.getElementById("deletePopup");
+const tableBody = $("#productTable");
+const searchInput = $("#search");
+const editPopup = $("#editPopup");
+const addPopup = $("#addPopup");
+const actionPopup = $("#actionPopup");
+const deletePopup = $("#deletePopup");
 
 let currentPage = 1;
 const itemsPerPage = 7;
 let selectedIndex = null;
 
-let products = [
+let products = JSON.parse(localStorage.getItem("products")) || [
   { kode: "P001", nama: "Susu Ikan", jumlah: 100, status: "Aktif" },
   { kode: "P002", nama: "Susu Lele", jumlah: 50, status: "Aktif" },
   { kode: "P003", nama: "Susu Tuna", jumlah: 75, status: "Non Aktif" },
@@ -19,82 +19,89 @@ let products = [
   { kode: "P007", nama: "Susu Tongkol", jumlah: 60, status: "Non Aktif" },
 ];
 
+function saveToLocalStorage() {
+  localStorage.setItem("products", JSON.stringify(products));
+}
+
 function renderTable(data) {
-  tableBody.innerHTML = "";
+  tableBody.empty();
   const start = (currentPage - 1) * itemsPerPage;
   const paginated = data.slice(start, start + itemsPerPage);
-  paginated.forEach((p, i) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${p.kode}</td>
-      <td>${p.nama}</td>
-      <td>${p.jumlah}</td>
-      <td class="${p.status === "Aktif" ? "status-aktif" : "status-non"}">${p.status}</td>
-      <td><span class="setting" onclick="openAction(${start + i})">:</span></td>
-    `;
-    tableBody.appendChild(row);
+  $.each(paginated, (i, p) => {
+    const row = $(`
+      <tr>
+        <td>${p.kode}</td>
+        <td>${p.nama}</td>
+        <td>${p.jumlah}</td>
+        <td class="${p.status === "Aktif" ? "status-aktif" : "status-non"}">${p.status}</td>
+        <td><span class="setting" data-index="${start + i}">:</span></td>
+      </tr>
+    `);
+    tableBody.append(row);
   });
-
-  document.getElementById("pageNumber").textContent = currentPage;
+  $("#pageNumber").text(currentPage);
 }
 
-function openAction(index) {
-  selectedIndex = index;
-  actionPopup.style.display = "flex";
-}
+$(document).on("click", ".setting", function () {
+  selectedIndex = $(this).data("index");
+  actionPopup.css("display", "flex");
+});
 
-document.getElementById("closeAction").onclick = () => (actionPopup.style.display = "none");
+$("#closeAction").on("click", () => actionPopup.hide());
 
-document.getElementById("actionEdit").onclick = () => {
-  actionPopup.style.display = "none";
+$("#actionEdit").on("click", () => {
+  actionPopup.hide();
   const p = products[selectedIndex];
-  document.getElementById("editKode").value = p.kode;
-  document.getElementById("editNama").value = p.nama;
-  document.getElementById("editJumlah").value = p.jumlah;
-  document.getElementById("editStatus").value = p.status;
-  editPopup.style.display = "flex";
-};
+  $("#editKode").val(p.kode);
+  $("#editNama").val(p.nama);
+  $("#editJumlah").val(p.jumlah);
+  $("#editStatus").val(p.status);
+  editPopup.css("display", "flex");
+});
 
-document.getElementById("actionDelete").onclick = () => {
-  actionPopup.style.display = "none";
-  deletePopup.style.display = "flex";
-};
+$("#actionDelete").on("click", () => {
+  actionPopup.hide();
+  deletePopup.css("display", "flex");
+});
 
-document.getElementById("confirmDelete").onclick = () => {
+$("#confirmDelete").on("click", () => {
   products.splice(selectedIndex, 1);
-  deletePopup.style.display = "none";
+  saveToLocalStorage();
+  deletePopup.hide();
   renderTable(products);
-};
+});
 
-document.getElementById("cancelDelete").onclick = () => deletePopup.style.display = "none";
+$("#cancelDelete").on("click", () => deletePopup.hide());
 
-document.getElementById("saveEdit").onclick = () => {
+$("#saveEdit").on("click", () => {
   const p = products[selectedIndex];
-  p.kode = document.getElementById("editKode").value;
-  p.nama = document.getElementById("editNama").value;
-  p.jumlah = parseInt(document.getElementById("editJumlah").value);
-  p.status = document.getElementById("editStatus").value;
-  editPopup.style.display = "none";
+  p.kode = $("#editKode").val();
+  p.nama = $("#editNama").val();
+  p.jumlah = parseInt($("#editJumlah").val());
+  p.status = $("#editStatus").val();
+  saveToLocalStorage();
+  editPopup.hide();
   renderTable(products);
-};
+});
 
-document.getElementById("closeEdit").onclick = () => editPopup.style.display = "none";
+$("#closeEdit").on("click", () => editPopup.hide());
 
-document.getElementById("addBtn").onclick = () => addPopup.style.display = "flex";
-document.getElementById("closeAdd").onclick = () => addPopup.style.display = "none";
-document.getElementById("saveAdd").onclick = () => {
+$("#addBtn").on("click", () => addPopup.css("display", "flex"));
+$("#closeAdd").on("click", () => addPopup.hide());
+$("#saveAdd").on("click", () => {
   const newP = {
-    kode: document.getElementById("newKode").value,
-    nama: document.getElementById("newNama").value,
-    jumlah: parseInt(document.getElementById("newJumlah").value),
-    status: document.getElementById("newStatus").value,
+    kode: $("#newKode").val(),
+    nama: $("#newNama").val(),
+    jumlah: parseInt($("#newJumlah").val()),
+    status: $("#newStatus").val(),
   };
   products.push(newP);
-  addPopup.style.display = "none";
+  saveToLocalStorage();
+  addPopup.hide();
   renderTable(products);
-};
+});
 
-searchInput.addEventListener("input", e => {
+searchInput.on("input", e => {
   const keyword = e.target.value.toLowerCase();
   const filtered = products.filter(p =>
     p.nama.toLowerCase().includes(keyword) || p.kode.toLowerCase().includes(keyword)
@@ -102,18 +109,18 @@ searchInput.addEventListener("input", e => {
   renderTable(filtered);
 });
 
-document.getElementById("nextPage").onclick = () => {
+$("#nextPage").on("click", () => {
   if (currentPage * itemsPerPage < products.length) {
     currentPage++;
     renderTable(products);
   }
-};
+});
 
-document.getElementById("prevPage").onclick = () => {
+$("#prevPage").on("click", () => {
   if (currentPage > 1) {
     currentPage--;
     renderTable(products);
   }
-};
+});
 
 renderTable(products);

@@ -291,6 +291,26 @@ footer {
   font-weight: 600;
 }
 
+#actionPopup .popup-content button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #f3f6fb;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#actionPopup .popup-content button:hover {
+  background-color: #4189d4;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+
 #saveEdit,
 #saveAdd,
 #confirmDelete {
