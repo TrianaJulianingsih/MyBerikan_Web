@@ -13,34 +13,62 @@
     <h2>Selamat Datang</h2>
     <p>Lengkapi data di bawah untuk membuat akun baru</p>
 
-    <form>
+    <form id="registerForm">
       <div class="input-group">
         <label for="id">ID Karyawan</label>
-        <input type="text" id="id" placeholder="ID Pengguna" required>
+        <input type="text" id="id" name="id" placeholder="ID Pengguna" required>
       </div>
 
       <div class="input-group">
         <label for="nama">Nama Lengkap</label>
-        <input type="text" id="nama" placeholder="Nama Pengguna" required>
+        <input type="text" id="nama" name="nama" placeholder="Nama Pengguna" required>
       </div>
 
       <div class="input-group">
         <label for="password">Kata Sandi</label>
-        <input type="password" id="password" placeholder="Masukkan Kata Sandi" required>
+        <input type="password" id="password" name="password" placeholder="Masukkan Kata Sandi" required>
       </div>
 
       <div class="input-group">
         <label for="confirm">Konfirmasi Kata Sandi</label>
-        <input type="password" id="confirm" placeholder="Masukkan Ulang Kata Sandi" required>
+        <input type="password" id="confirm" name="confirm" placeholder="Masukkan Ulang Kata Sandi" required>
       </div>
 
       <div class="login-text">
-        ------------Sudah memiliki akun? <a href="../Login/login.html">Login di sini</a>------------
+        Sudah memiliki akun? <a href="../Login/login.html">Login di sini</a>
       </div>
 
       <button type="submit" class="btn">Register</button>
     </form>
   </div>
+
+  <script>
+    const registerForm = document.getElementById("registerForm");
+
+    registerForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const id = document.getElementById("id").value.trim();
+      const nama = document.getElementById("nama").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const confirm = document.getElementById("confirm").value.trim();
+
+      if (password !== confirm) {
+        alert("Kata sandi dan konfirmasi tidak cocok!");
+        return;
+      }
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const isExist = users.some(u => u.id === id || u.nama === nama);
+      if (isExist) {
+        alert("ID atau nama sudah terdaftar! Silakan gunakan yang lain.");
+        return;
+      }
+      users.push({ id, nama, password });
+      localStorage.setItem("users", JSON.stringify(users));
+      alert("Registrasi berhasil! Silakan login menggunakan akun Anda.");
+      window.location.href = "../Login/login.html";
+    });
+  </script>
 
 </body>
 </html>
