@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Logistik - Berikan Bahari Indonesia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="appbar">
+    <div class="logo">
+      <img src="../asset/logo.png" alt="logo">
+    </div>
+
+    <div class="header-right">
+      <div class="profile">
+        <div class="avatar">
+          <img src="../asset/mat.jpg">
+        </div>
+        <span>User Name</span>
+      </div>
+    </div>
+  </header>
+
+<main class="container">
+  <div class="header-bar">
+    <h2>Data Logistik</h2>
+    <div class="toolbar">
+      <input type="text" id="search" placeholder="Cari...">
+      <button id="addBtn">Tambah Logistik</button>
+    </div>
+  </div>
+
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>Kode</th>
+          <th>Nama</th>
+          <th>Jumlah</th>
+          <th>Status</th>
+          <th>Harga</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="productTable">
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      <button id="prevPage">&laquo;</button>
+      <span id="pageNumber">1</span>
+      <button id="nextPage">&raquo;</button>
+    </div>
+  </main>
+
+  <!-- Popup Aksi-->
+  <div class="popup" id="actionPopup">
+    <div class="popup-content small">
+      <h4>Pilih Aksi</h4>
+      <button id="actionEdit">Edit</button>
+      <button id="actionDelete">Hapus</button>
+      <button id="closeAction">Batal</button>
+    </div>
+  </div> 
+
+  <!-- Popup Edit -->
+  <div class="popup" id="editPopup">
+    <div class="popup-content">
+      <h3>Data Logistik</h3>
+      <input type="text" id="editKode" placeholder="Kode">
+      <input type="text" id="editNama" placeholder="Nama">
+      <input type="number" id="editJumlah" placeholder="Jumlah">
+      <select id="editStatus">
+        <option value="Tersedia">Tersedia</option>
+        <option value="Kosong">Kosong</option>
+        <option value="Dalam Pengiriman">Dalam Pengiriman</option>
+      </select>
+      <input type="harga" id="editHarga" placeholder="Harga">
+      <div class="popup-buttons">
+        <button id="saveEdit">Simpan</button>
+        <button id="closeEdit">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Tambah -->
+  <div class="popup" id="addPopup">
+    <div class="popup-content">
+      <h3>Tambah Logistik</h3>
+      <input type="text" id="newKode" placeholder="Kode">
+      <input type="text" id="newNama" placeholder="Nama">
+      <input type="number" id="newJumlah" placeholder="Jumlah">
+      <select id="newStatus">
+        <option value="Tersedia">Tersedia</option>
+        <option value="Kosong">Kosong</option>
+        <option value="Dalam Pengiriman">Dalam Pengiriman</option>
+      </select>
+      <input type="text" id="newHarga" placeholder="Harga">
+      <div class="popup-buttons">
+        <button id="saveAdd">Simpan</button>
+        <button id="closeAdd">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Delete -->
+  <div class="popup" id="deletePopup">
+    <div class="popup-content small">
+      <h3>Hapus Data?</h3>
+      <p>Apakah kamu yakin ingin menghapus data ini?</p>
+      <div class="popup-buttons">
+        <button id="confirmDelete">Ya, Hapus</button>
+        <button id="cancelDelete">Batal</button>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    © 2025 PT Berikan Teknologi Indonesia ~ Maintenance
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
