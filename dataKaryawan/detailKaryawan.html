@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Karyawan - Berikan Bahari Indonesia</title>
+  <link rel="stylesheet" href="detailKaryawan.css" />
+</head>
+
+<body>
+  <header class="appbar">
+    <div class="logo">
+      <a href="../Dashboard/dashboard.html">
+        <img src="../assets/images/logo 2.png" alt="logo" />
+      </a>
+    </div>
+    <div class="header-right">
+      <div class="profile">
+        <div class="avatar">
+          <img src="../assets/images/mat.jpg" alt="User Avatar" />
+        </div>
+        <span>User Name</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <button id="backBtn" class="back-btn">← Kembali</button>
+
+    <section class="profile-section">
+      <div class="profile-left">
+        <img id="foto" src="" alt="Foto Karyawan" class="profile-photo" />
+      </div>
+
+      <div class="profile-right">
+        <h2 id="nama">Nama Karyawan</h2>
+        <p><strong>NIP:</strong> <span id="nip"></span></p>
+        <p><strong>Divisi:</strong> <span id="divisi"></span></p>
+        <p><strong>Jabatan:</strong> <span id="jabatan"></span></p>
+        <p><strong>Status:</strong> <span id="status"></span></p>
+        <p><strong>Gaji:</strong> Rp <span id="gaji"></span></p>
+        <p><strong>Alamat:</strong> <span id="alamat"></span></p>
+      </div>
+    </section>
+
+    <section class="attendance-section">
+      <h3>Log Kehadiran</h3>
+      <table class="attendance-table">
+        <thead>
+          <tr>
+            <th>Tanggal</th>
+            <th>Jam Masuk</th>
+            <th>Jam Keluar</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="attendanceBody">
+          <!-- Data log kehadiran dari JS -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 PT Berikan Teknologi Indonesia ~ Detail Karyawan
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="detailKaryawan.js"></script>
+</body>
+</html>
