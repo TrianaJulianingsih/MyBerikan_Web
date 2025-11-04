@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Karyawan - Berikan Bahari Indonesia</title>
+  <link rel="stylesheet" href="dataKaryawan.css">
+</head>
+
+<body>
+  <header class="appbar">
+    <div class="logo">
+      <a href="../Dashboard/dashboard.html">
+        <img src="../assets/images/logo 2.png" alt="logo">
+      </a>
+    </div>
+
+    <div class="header-right">
+      <div class="profile">
+        <div class="avatar">
+          <img src="../assets/images/mat.jpg" alt="User Avatar">
+        </div>
+        <span>User Name</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="header-bar">
+      <h2>Data Karyawan</h2>
+      <div class="toolbar">
+        <input type="text" id="search" placeholder="Cari Karyawan...">
+        <button id="addBtn">+ Tambah Karyawan</button>
+      </div>
+    </div>
+
+    <div id="employeeGrid" class="employee-grid"></div>
+  </main>
+
+  <!-- Popup Aksi -->
+  <div class="popup" id="actionPopup">
+    <div class="popup-content small">
+      <h4>Pilih Aksi</h4>
+      <button id="actionEdit">Edit</button>
+      <button id="actionDelete">Hapus</button>
+      <button id="closeAction">Batal</button>
+    </div>
+  </div>
+
+  <!-- Popup Tambah/Edit -->
+  <div class="popup" id="formPopup">
+    <div class="popup-content">
+      <h3 id="formTitle">Tambah Karyawan</h3>
+      <input type="text" id="nipInput" placeholder="NIP">
+      <input type="text" id="namaInput" placeholder="Nama Karyawan">
+      <input type="text" id="divisiInput" placeholder="Divisi">
+      <input type="text" id="jabatanInput" placeholder="Jabatan">
+      <select id="statusInput">
+        <option value="Aktif">Aktif</option>
+        <option value="Cuti">Cuti</option>
+      </select>
+      <div class="popup-buttons">
+        <button id="saveBtn">Simpan</button>
+        <button id="cancelBtn">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Hapus -->
+  <div class="popup" id="deletePopup">
+    <div class="popup-content small">
+      <h3>Hapus Karyawan</h3>
+      <p>Apakah kamu yakin ingin menghapus data ini?</p>
+      <div class="popup-buttons">
+        <button id="confirmDelete">Ya, Hapus</button>
+        <button id="cancelDelete">Batal</button>
+      </div>
+    </div>
+  </div>
+
+    <footer>
+    © 2025 PT Berikan Teknologi Indonesia ~ Data Karyawan
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="dataKaryawan.js"></script>
+</body>
+</html>
